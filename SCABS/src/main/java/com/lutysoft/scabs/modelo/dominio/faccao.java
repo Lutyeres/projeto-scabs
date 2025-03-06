@@ -1,14 +1,14 @@
 package com.lutysoft.scabs.modelo.dominio;
 
-public class faccao {
-    //Atributos da classe faccao de acordo com o banco de dados.
+public class Faccao {
+    //Atributos da classe Faccao de acordo com o banco de dados.
     private Long id;
     private String nome;
     //Construtor vazio
-    public faccao() {
+    public Faccao() {
     }
     //Construtor que permite a modificar os atributos.
-    public faccao(Long id, String nome) {
+    public Faccao(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }

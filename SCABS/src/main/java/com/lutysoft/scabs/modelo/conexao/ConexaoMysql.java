@@ -23,17 +23,18 @@ public class ConexaoMysql implements Conexao {
     //Método que foi herdado da classe interface.
     @Override
     public Connection obterConexao() throws SQLException {
+        //Esse try catch vai realizar a conexão com o banco de dados, caso de algum erro ele possui duas catch de tratamento para avisar o respectivo erro.
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conectar = DriverManager.getConnection(url, usuario, senha);
             System.out.println("Conexão bem sucedida");
             return conectar;
-        } catch (ClassNotFoundException cnf) {
-            System.out.println("Houve um erro no DRIVER: classnotfoundexcepition-" + cnf);
-            return null;
         } catch (SQLException sql) {
             System.out.println("Houve um erro no SQL:sqlexception sql-" + sql);
             return null;
+        } catch (ClassNotFoundException cnf) {
+            System.out.println("Houve um erro no DRIVER: classnotfoundexcepition-" + cnf);
+            return null;
         }
-
     }
+}
