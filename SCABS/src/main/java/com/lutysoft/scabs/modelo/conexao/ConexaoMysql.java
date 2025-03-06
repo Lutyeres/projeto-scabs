@@ -27,7 +27,7 @@ public class ConexaoMysql implements Conexao {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conectar = DriverManager.getConnection(url, usuario, senha);
-            System.out.println("Conexão bem sucedida");
+            //System.out.println("Conexão bem sucedida");
             return conectar;
         } catch (SQLException sql) {
             System.out.println("Houve um erro no SQL:sqlexception sql-" + sql);

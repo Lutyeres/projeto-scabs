@@ -30,11 +30,11 @@ public class FaccaoDao {
     }
 
     public String salvar(Faccao faccao) {
-        return faccao.getId() == 0L ? adcionar(faccao) : editar(faccao);
+        return faccao.getId() == 0L ? adicionar(faccao) : editar(faccao);
     }
 
-    private String adcionar(Faccao faccao) {
-        String sql = "INSERTO INTO faccao(faccao_name) VALUES (?)";
+    private String adicionar(Faccao faccao) {
+        String sql = "INSERT INTO faccao(faccao_name) VALUES (?)";
         
         Faccao faccaoTemp = buscarFaccaoPeloNome(faccao.getNome());
         
@@ -98,7 +98,7 @@ public class FaccaoDao {
             }
 
         } catch (SQLException e) {
-            System.out.println(String.format("Error: ", e.getMessage()));
+            System.out.println(String.format("Error: %s", e.getMessage()));
         }
 
         return faccoes;
@@ -126,14 +126,14 @@ public class FaccaoDao {
             }
 
         } catch (SQLException e) {
-            System.out.println(String.format("Error: ", e.getMessage()));
+            System.out.println(String.format("Error: %s", e.getMessage()));
         }
 
         return null;
     }
 
     public Faccao buscarFaccaoPeloNome(String nome) {
-        String sql = String.format("SELECT * FROM faccao WHERE idFaccao = %s", nome);
+        String sql = String.format("SELECT * FROM faccao WHERE faccao_name = '%s'", nome);
 
         try {
             con = conexao.obterConexao();
@@ -145,7 +145,7 @@ public class FaccaoDao {
             }
 
         } catch (SQLException e) {
-            System.out.println(String.format("Error: ", e.getMessage()));
+            System.out.println(String.format("Error: %s", e.getMessage()));
         }
 
         return null;
