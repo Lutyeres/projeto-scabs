@@ -17,7 +17,8 @@ public class FaccaoTeste {
         Faccao faccao = new Faccao(0L, "Aldo");
         
         FaccaoDao faccaoDao = new FaccaoDao();
-        System.out.println(faccaoDao.salvar(faccao));
+        
+        System.out.println(faccaoDao.buscarTodasFaccao());
     }
     
 }
