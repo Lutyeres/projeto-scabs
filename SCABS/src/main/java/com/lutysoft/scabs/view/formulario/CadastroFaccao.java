@@ -4,18 +4,33 @@
  */
 package com.lutysoft.scabs.view.formulario;
 
+import com.lutysoft.scabs.controller.CadastroFaccaoController;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author lutye
  */
 public class CadastroFaccao extends javax.swing.JFrame {
-
+    
+    private CadastroFaccaoController cadastroFaccaoController;
+    
     /**
      * Creates new form CadastroFaccao
      */
     public CadastroFaccao() {
         initComponents();
         setLocationRelativeTo(null);
+        this.cadastroFaccaoController = new CadastroFaccaoController(this);
+        eventos();
+    }
+    
+    private void eventos(){
+        botaoCadastroFaccaoSalvar.addActionListener(cadastroFaccaoController);
+        botaoCadastroFaccaoCancelar.addActionListener(cadastroFaccaoController);
+        botaoCadastroFaccaoConsultar.addActionListener(cadastroFaccaoController);
     }
 
     /**
@@ -45,7 +60,7 @@ public class CadastroFaccao extends javax.swing.JFrame {
         labelCadastroFaccaoFaccao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         labelCadastroFaccaoFaccao.setText("Facção:");
 
-        labelCadastroFaccaoMensagem.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        labelCadastroFaccaoMensagem.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         labelCadastroFaccaoMensagem.setForeground(new java.awt.Color(255, 51, 51));
         labelCadastroFaccaoMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -75,24 +90,24 @@ public class CadastroFaccao extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoCadastroFaccaoCancelar)
+                .addGap(40, 40, 40))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(labelCadastroFaccaoFaccao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelCadastroFaccaoMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCadastroFaccaoFaccao)
                     .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 90, Short.MAX_VALUE)
+                        .addGap(0, 111, Short.MAX_VALUE)
                         .addComponent(botaoCadastroFaccaoSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoCadastroFaccaoConsultar)))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoCadastroFaccaoCancelar)
-                .addGap(40, 40, 40))
+                .addContainerGap(61, Short.MAX_VALUE))
+            .addComponent(labelCadastroFaccaoMensagem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,4 +196,25 @@ public class CadastroFaccao extends javax.swing.JFrame {
     private javax.swing.JLabel labelCadastroFaccaoMensagem;
     private javax.swing.JTextField txtCadastroFaccaoFaccao;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getTxtCadastroFaccaoFaccao(){
+        return txtCadastroFaccaoFaccao;
+    }
+    
+    public JButton getBotaoCadastroFaccaoSalvar(){
+        return botaoCadastroFaccaoSalvar;
+    }
+    
+    public JButton getBotaoCadastroFaccaoConsultar(){
+        return botaoCadastroFaccaoConsultar;
+    }
+    
+    public JButton getBotaoCadastroFaccaoCancelar(){
+        return botaoCadastroFaccaoCancelar;
+    }
+    
+    public JLabel getLabelCadastroFaccaoMensagem(){
+        return labelCadastroFaccaoMensagem;
+    }
+
 }

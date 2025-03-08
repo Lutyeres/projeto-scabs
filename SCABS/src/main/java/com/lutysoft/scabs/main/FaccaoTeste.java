@@ -14,11 +14,11 @@ import com.lutysoft.scabs.modelo.dominio.Faccao;
 public class FaccaoTeste {
     
     public static void main(String[] args) {
-        Faccao faccao = new Faccao(0L, "Aldo");
+        Faccao faccao = new Faccao(0L, "Girafa");
         
         FaccaoDao faccaoDao = new FaccaoDao();
         
-        System.out.println(faccaoDao.buscarTodasFaccao());
+        System.out.println(faccaoDao.salvar(faccao));
     }
     
 }
