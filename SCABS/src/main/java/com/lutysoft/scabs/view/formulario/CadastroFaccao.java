@@ -29,8 +29,8 @@ public class CadastroFaccao extends javax.swing.JFrame {
     
     private void eventos(){
         botaoCadastroFaccaoSalvar.addActionListener(cadastroFaccaoController);
-        botaoCadastroFaccaoCancelar.addActionListener(cadastroFaccaoController);
-        botaoCadastroFaccaoConsultar.addActionListener(cadastroFaccaoController);
+        botaoCadastroFaccaoVoltar.addActionListener(cadastroFaccaoController);
+        botaoCadastroFaccaoEditar.addActionListener(cadastroFaccaoController);
     }
 
     /**
@@ -47,9 +47,10 @@ public class CadastroFaccao extends javax.swing.JFrame {
         labelCadastroFaccaoMensagem = new javax.swing.JLabel();
         txtCadastroFaccaoFaccao = new javax.swing.JTextField();
         botaoCadastroFaccaoSalvar = new javax.swing.JButton();
-        botaoCadastroFaccaoConsultar = new javax.swing.JButton();
-        botaoCadastroFaccaoCancelar = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        botaoCadastroFaccaoVoltar = new javax.swing.JButton();
+        botaoCadastroFaccaoEditar = new javax.swing.JButton();
+        labelCadastroFaccaoId = new javax.swing.JLabel();
+        txtCadastroFaccaoId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -75,57 +76,69 @@ public class CadastroFaccao extends javax.swing.JFrame {
             }
         });
 
-        botaoCadastroFaccaoConsultar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        botaoCadastroFaccaoConsultar.setText("Consultar");
-        botaoCadastroFaccaoConsultar.addActionListener(new java.awt.event.ActionListener() {
+        botaoCadastroFaccaoVoltar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botaoCadastroFaccaoVoltar.setText("Voltar");
+        botaoCadastroFaccaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastroFaccaoConsultarActionPerformed(evt);
+                botaoCadastroFaccaoVoltarActionPerformed(evt);
             }
         });
 
-        botaoCadastroFaccaoCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        botaoCadastroFaccaoCancelar.setText("Cancelar");
+        botaoCadastroFaccaoEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botaoCadastroFaccaoEditar.setText("Editar");
+
+        labelCadastroFaccaoId.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        labelCadastroFaccaoId.setText("ID:");
+
+        txtCadastroFaccaoId.setText("0");
+        txtCadastroFaccaoId.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelCadastroFaccaoMensagem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoCadastroFaccaoCancelar)
+                .addComponent(botaoCadastroFaccaoVoltar)
                 .addGap(40, 40, 40))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(labelCadastroFaccaoFaccao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtCadastroFaccaoFaccao)
-                    .addComponent(jSeparator1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 111, Short.MAX_VALUE)
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(botaoCadastroFaccaoSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoCadastroFaccaoConsultar)))
-                .addContainerGap(61, Short.MAX_VALUE))
-            .addComponent(labelCadastroFaccaoMensagem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoCadastroFaccaoEditar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelCadastroFaccaoId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtCadastroFaccaoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelCadastroFaccaoFaccao)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtCadastroFaccaoFaccao, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(33, 33, 33)
                 .addComponent(labelCadastroFaccaoMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCadastroFaccaoId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCadastroFaccaoId))
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCadastroFaccaoFaccao, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                     .addComponent(labelCadastroFaccaoFaccao, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoCadastroFaccaoSalvar)
-                    .addComponent(botaoCadastroFaccaoConsultar))
-                .addGap(39, 39, 39)
-                .addComponent(botaoCadastroFaccaoCancelar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCadastroFaccaoEditar)
+                    .addComponent(botaoCadastroFaccaoSalvar))
+                .addGap(40, 40, 40)
+                .addComponent(botaoCadastroFaccaoVoltar)
                 .addGap(37, 37, 37))
         );
 
@@ -137,19 +150,19 @@ public class CadastroFaccao extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoCadastroFaccaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroFaccaoConsultarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoCadastroFaccaoConsultarActionPerformed
-
     private void botaoCadastroFaccaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroFaccaoSalvarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoCadastroFaccaoSalvarActionPerformed
+
+    private void botaoCadastroFaccaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroFaccaoVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoCadastroFaccaoVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,30 +200,35 @@ public class CadastroFaccao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoCadastroFaccaoCancelar;
-    private javax.swing.JButton botaoCadastroFaccaoConsultar;
+    private javax.swing.JButton botaoCadastroFaccaoEditar;
     private javax.swing.JButton botaoCadastroFaccaoSalvar;
+    private javax.swing.JButton botaoCadastroFaccaoVoltar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelCadastroFaccaoFaccao;
+    private javax.swing.JLabel labelCadastroFaccaoId;
     private javax.swing.JLabel labelCadastroFaccaoMensagem;
     private javax.swing.JTextField txtCadastroFaccaoFaccao;
+    private javax.swing.JTextField txtCadastroFaccaoId;
     // End of variables declaration//GEN-END:variables
 
     public JTextField getTxtCadastroFaccaoFaccao(){
         return txtCadastroFaccaoFaccao;
     }
     
+    public JTextField getTxtCadastroFaccaoId(){
+        return txtCadastroFaccaoId;
+    }
+    
     public JButton getBotaoCadastroFaccaoSalvar(){
         return botaoCadastroFaccaoSalvar;
     }
     
-    public JButton getBotaoCadastroFaccaoConsultar(){
-        return botaoCadastroFaccaoConsultar;
+    public JButton getBotaoCadastroFaccaoEditar(){
+        return botaoCadastroFaccaoEditar;
     }
     
     public JButton getBotaoCadastroFaccaoCancelar(){
-        return botaoCadastroFaccaoCancelar;
+        return botaoCadastroFaccaoVoltar;
     }
     
     public JLabel getLabelCadastroFaccaoMensagem(){

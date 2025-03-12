@@ -32,8 +32,8 @@ public class CadastroFaccaoController implements ActionListener {
         
         switch(acao){
             case "salvar" : salvar(); break;
-            case "consultar" : consultar(); break;
-            case "cancelar" : cancelar(); break;
+            case "editar" : editar(); break;
+            case "cancelar" : voltar(); break;
         }
     }
 
@@ -51,17 +51,39 @@ public class CadastroFaccaoController implements ActionListener {
             this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("A facção que você tentou registrar já está cadastrada no sistema");
         }else {
             this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("Facção cadastrada com sucesso.");
+            Faccao faccaoBd = new Faccao(0L,faccao);
+            this.faccaoDao.salvar(faccaoBd);
         }
         
     }
 
-    private void consultar() {
-        
-    }
-
-    private void cancelar() {
+    private void voltar() {
 
         }
+
+    private void editar() {
+        String faccao = this.cadastroFaccao.getTxtCadastroFaccaoFaccao().getText();
+        String id = this.cadastroFaccao.getTxtCadastroFaccaoId().getText();
+        Long idLong = Long.parseLong(id);
+        
+        
+        if(faccao.equals("")){
+            this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("O campo do nome da facção deve ser preenchido.");
+            return;
+        }
+        
+        if(idLong != 0L){
+            this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("Facção alterada com sucesso.");
+            Faccao faccaoBD = new Faccao(idLong,faccao);
+            this.faccaoDao.salvar(faccaoBD);
+        }
+        else{
+            this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("Digite o ID da facção para alterá-la.");
+
+        }
+        
+        
+    }
     
     
 }
