@@ -59,9 +59,8 @@ public class CadastroFaccaoController implements ActionListener {
                 this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("ID não deve ser informado para opção salvar.");
             }
             if (faccaoTemp == null) {
-                faccaoTemp.setId(idLong);
-                faccaoTemp.setNome(faccao);
-                this.faccaoDao.salvar(faccaoTemp);
+                Faccao faccaoDb = new Faccao(idLong, faccao);
+                this.faccaoDao.salvar(faccaoDb);
                 this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("Facção cadastrada com sucesso.");
             } else {
                 this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("A facção que você tentou registrar já está cadastrada no sistema");
