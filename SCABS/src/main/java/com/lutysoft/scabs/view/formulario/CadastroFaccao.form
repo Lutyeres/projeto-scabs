@@ -65,7 +65,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelCadastroFaccaoId" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtCadastroFaccaoId" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCadastroFaccaoId" min="-2" pref="55" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelCadastroFaccaoFaccao" min="-2" max="-2" attributes="0"/>
@@ -85,7 +85,7 @@
                   <Component id="labelCadastroFaccaoMensagem" min="-2" pref="16" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtCadastroFaccaoId" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="txtCadastroFaccaoId" alignment="3" pref="22" max="32767" attributes="0"/>
                       <Component id="labelCadastroFaccaoId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
@@ -177,11 +177,17 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadastroFaccaoId">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="0"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Text Cursor"/>
             </Property>
           </Properties>
         </Component>
