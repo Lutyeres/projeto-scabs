@@ -50,15 +50,14 @@ public class CadastroFaccaoController implements ActionListener {
             return;
         }
 
-        Faccao faccaoTemp = this.faccaoDao.buscarFaccaoPeloNome(faccao);
 
         //System.out.println(faccaoTemp.getId()+""+faccaoTemp.getNome());
         try {
+            Faccao faccaoTemp = this.faccaoDao.buscarFaccaoPeloNome(faccao);
             Long idLong = Long.parseLong(faccaoId);
             if (idLong > 0L) {
                 this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("ID não deve ser informado para opção salvar.");
-            }
-            if (faccaoTemp == null) {
+            }else if (faccaoTemp == null) {
                 Faccao faccaoDb = new Faccao(idLong, faccao);
                 this.faccaoDao.salvar(faccaoDb);
                 this.cadastroFaccao.getLabelCadastroFaccaoMensagem().setText("Facção cadastrada com sucesso.");
